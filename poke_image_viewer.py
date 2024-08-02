@@ -37,15 +37,15 @@ frm.coloumnconfigure(0, weight=1)
 frm.coloumnrow(0, weight=1)
 frm.grid()
 # TODO: Populate frames with widgets and define event handler functions
-image_path = os.path.join(script_dir, "")
+image_path = os.path.join(script_dir, "poke_ball.png")
 photo = PhotoImage(file=image_path)
 
-lbl_image = ttk.Label
-lbl_image.grid
+lbl_image = ttk.Label(frm, text="poke_ball.icon")
+lbl_image.grid(row=0, coloumn=0, padx=10, pady=10)
 
 #Create button to set desktop background
 def handle_set_desktop():
-#finish
+
 
 
 def handle_poke_sel(event):
