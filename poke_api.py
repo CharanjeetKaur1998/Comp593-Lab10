@@ -3,13 +3,16 @@ Library for interacting with the PokeAPI.
 https://pokeapi.co/
 '''
 import requests
+import os
 
 POKE_API_URL = 'https://pokeapi.co/api/v2/pokemon/'
+
 
 def main():
     # Test out the get_pokemon_into() function
     # Use breakpoints to view returned dictionary
     poke_info = get_pokemon_info("Rockruff")
+    pokemon_artwork_download_and_save("PikaChu","C:\\Users\Admin\\Documents\\Lab 10 Script Templates")
     return
 
 def get_pokemon_info(pokemon):
@@ -46,9 +49,28 @@ def get_pokemon_info(pokemon):
         print('failure')
         print(f'Response code: {resp_msg.status_code} ({resp_msg.reason})')
 
-    # TODO: Define function that gets a list of all Pokemon names from the PokeAPI
+# TODO: Define function that gets a list of all Pokemon names from the PokeAPI
+def pokemon_list(limit):
+    url = f"https://pokeapi.co/api/v2/pokemon?limit={limit}"
+    response = requests.get(url)
+    data = response.json()
+    L=[]
+    for pokemon_name in data['results']:
+        L.append(pokemon_name['name'])
+    return L
 
-    # TODO: Define function that downloads and saves Pokemon artwork
+# TODO: Define function that downloads and saves Pokemon artwork
+def pokemon_artwork_download_and_save(pokemon_nm,images_dir):
+    poke_info = get_pokemon_info(pokemon_nm)
+    image_file_path = os.path.join(images_dir,f"{pokemon_nm.upper()}.jpg")
+    art_url = poke_info["sprites"]["other"]["official-artwork"]["front_default"]
+    if art_url == "":
+        print(f"No artwork found for {pokemon_nm}")
+    with open(image_file_path,'wb') as image_file:
+            image_file.write(requests.get(art_url).content)
+    
+    return image_file_path
+
 
 if __name__ == '__main__':
     main()
