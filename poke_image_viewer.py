@@ -29,8 +29,8 @@ root.title("Pokemon Viewer")
 # TODO: Set the icon
 app_id = 'COMP593.PokeImageViewer'
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(app_id)
-pokemon_ball_file_path = os.path.join(script_dir,'poke_ball.ico')
-root.iconbitmap(pokemon_ball_file_path )
+
+root.iconbitmap(r"C:\Users\chara\OneDrive\Desktop\github\Comp593-Lab10\poke_ball.ico" )
 a=0
 
 #Function for getting combobox value
@@ -50,7 +50,7 @@ def handle_pokemon_sel(event):
 #Function for Button click
 def button_click():
     selected_pokemon = cbox.get()
-    pokemon_image_filepath = os.path.join(images_dir,f"{selected_pokemon}.jpg")
+    pokemon_image_filepath = os.path.join(images_dir,f"{selected_pokemon}.png")
     image_lib.set_desktop_background_image(pokemon_image_filepath)
   
     

@@ -12,7 +12,7 @@ def main():
     # Test out the get_pokemon_into() function
     # Use breakpoints to view returned dictionary
     poke_info = get_pokemon_info("Rockruff")
-    pokemon_artwork_download_and_save("PikaChu","C:\\Users\Admin\\Documents\\Lab 10 Script Templates")
+    pokemon_artwork_download_and_save("PikaChu","C:\\Users\\chara\\OneDrive\\Desktop\\github\\Comp593-Lab10")
     return
 
 def get_pokemon_info(pokemon):
@@ -62,7 +62,7 @@ def pokemon_list(limit):
 # TODO: Define function that downloads and saves Pokemon artwork
 def pokemon_artwork_download_and_save(pokemon_nm,images_dir):
     poke_info = get_pokemon_info(pokemon_nm)
-    image_file_path = os.path.join(images_dir,f"{pokemon_nm.upper()}.jpg")
+    image_file_path = os.path.join(images_dir,f"{pokemon_nm.upper()}.png")
     art_url = poke_info["sprites"]["other"]["official-artwork"]["front_default"]
     if art_url == "":
         print(f"No artwork found for {pokemon_nm}")

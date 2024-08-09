@@ -7,12 +7,11 @@ import os
 
 POKE_API_URL = 'https://pokeapi.co/api/v2/pokemon/'
 
-
 def main():
     # Test out the get_pokemon_into() function
     # Use breakpoints to view returned dictionary
     poke_info = get_pokemon_info("Rockruff")
-    pokemon_artwork_download_and_save("PikaChu","C:\\Users\Admin\\Documents\\Lab 10 Script Templates")
+    pokemon_artwork_download_and_save("PikaChu","C:\\Users\\chara\\OneDrive\\Desktop\\github\\Comp593-Lab10")
     return
 
 def get_pokemon_info(pokemon):
