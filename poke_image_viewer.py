@@ -29,8 +29,8 @@ root.title("Pokemon Viewer")
 # TODO: Set the icon
 app_id = 'COMP593.PokeImageViewer'
 ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(app_id)
-
-root.iconbitmap(r"C:\Users\chara\OneDrive\Desktop\github\Comp593-Lab10\poke_ball.ico" )
+pokemon_ball_file_path = os.path.join(script_dir,'poke_ball.ico')
+root.iconbitmap(pokemon_ball_file_path )
 a=0
 
 #Function for getting combobox value
